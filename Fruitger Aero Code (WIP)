@@ -1,601 +1,1936 @@
 /**
- * @name AeroCord
- * @author Repojun
- * @description glossy surfaces, bright gradients, glassy buttons, and tech-inspired typography.
- * @version 0.0.122
-*/
+ * @name Frutiger Aero
+ * @author Jayzen
+ * @description Bright glossy Frutiger Aero / Windows Vista inspired Discord theme
+ * @version 2.0.0
+ */
+
+
+/* ============================================================
+   FRUTIGER AERO
+   ============================================================ */
 
 :root {
-  --background-image: url("https://raw.githubusercontent.com/jayzeniscoolio/MyStuff/main/QYpU35.webp?raw=true");
-  --interactive-normal: rgb(255, 255, 255);
-  --channel-text-area-placeholder: rgba(255, 255, 255, 0.546) !important;
-  --text-muted: rgba(188, 238, 255, 0.622) !important;
-  --channels-default: rgb(160, 199, 212) !important;
-  --interactive-muted: rgba(192, 239, 255, 0.381) !important;
-  --channel-icon: rgb(160, 199, 212) !important;
-  --header-secondary: rgb(179, 232, 249) !important;
-  --primary-330: rgb(235, 235, 235) !important;
-  --primary-500: #5665eb !important;
+  /*
+   * Your wallpaper.
+   * The whole theme is built around letting this remain visible.
+   */
+  --aero-wallpaper:
+    url("https://raw.githubusercontent.com/jayzeniscoolio/MyStuff/main/skeuoss-desktop-wallpaper-2.jpg?raw=true");
+
+  /*
+   * Glass colors
+   */
+  --glass-blue: rgba(70, 180, 230, 0.22);
+  --glass-blue-light: rgba(150, 225, 250, 0.20);
+  --glass-white: rgba(255, 255, 255, 0.18);
+  --glass-green: rgba(90, 190, 120, 0.10);
+
+  /*
+   * Borders
+   */
+  --glass-edge: rgba(255, 255, 255, 0.42);
+  --glass-edge-soft: rgba(255, 255, 255, 0.20);
+
+  /*
+   * Shadows
+   */
+  --aero-shadow:
+    0 4px 18px rgba(20, 90, 130, 0.18);
+
+  --aero-shadow-big:
+    0 12px 35px rgba(15, 90, 130, 0.25);
+
+  /*
+   * Text
+   */
+  --interactive-normal: #ffffff !important;
+  --text-normal: #ffffff !important;
+  --header-primary: #ffffff !important;
+  --header-secondary: rgba(240, 255, 255, 0.90) !important;
+
+  --text-muted:
+    rgba(235, 255, 255, 0.72) !important;
+
+  --channels-default:
+    rgba(230, 255, 255, 0.76) !important;
+
+  --channel-icon:
+    rgba(230, 255, 255, 0.76) !important;
+
+  --interactive-muted:
+    rgba(235, 255, 255, 0.42) !important;
 }
 
-/* I'm keeping this in for back-compat (as well as I have no idea what it does)*/
-[class^="embedFull"] {
-  background-color: transparent !important;
+
+/* ============================================================
+   WALLPAPER
+   ============================================================ */
+
+/*
+ * The wallpaper is the most important part of the theme.
+ *
+ * Do NOT blur the whole application.
+ */
+
+html,
+body {
+  background-color: #65c5e8 !important;
+
+  background-image: var(--aero-wallpaper) !important;
+
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
 }
 
- /* Main container need to make others transparent and themed (I think, I don't know, this is stolen from the broken stuff - Diode-exe) */
- /* applies to stable 488579 (28327b1) */
+
+/* Discord application */
+
+#app-mount {
+  background: transparent !important;
+}
+
+
+/* Remove Discord's default giant background */
+
 .appMount__51fd7,
+.app_a3002d,
+.app__160d8,
+.bg__960e4,
+.appAsidePanelWrapper_a3002d,
+.notAppAsidePanel_a3002d,
 .bar_c38106,
 .systemBar_c38106,
-.fixed_c38106, 
-.appAsidePanelWrapper_a3002d, 
-.notAppAsidePanel_a3002d, 
-.app_a3002d, 
-.app__160d8, 
-.bg__960e4{
-  background-size: 100% 100%;
-  background-image: url("https://raw.githubusercontent.com/jayzeniscoolio/MyStuff/main/QYpU35.webp?raw=true") !important;
-  background-image: url("https://raw.githubusercontent.com/jayzeniscoolio/MyStuff/main/QYpU35.webp?raw=true") !important;
-} 
-
-
-/* this is the servers list on the left */
-/* applies to stable 488579 (28327b1) */
-.guilds__5e434 {
-  background-color: transparent !important;
-  background: none !important;
+.fixed_c38106 {
+  background: transparent !important;
+  background-image: none !important;
 }
 
-/* this will make the server icons jump up when hovered on */
-/* .blobContainer_e5445c:hover, */ 
-/* applies to stable 488579 (28327b1) */
+
+/* ============================================================
+   GLOBAL DISCORD SURFACES
+   ============================================================ */
+
+/*
+ * These are deliberately VERY transparent.
+ */
+
+.chat_f75fb0,
+.chatContent_f75fb0,
+.container__2637a,
+.container__133bf,
+.tabBody__133bf,
+.privateChannels_e6b769 {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+
+/* ============================================================
+   SERVER RAIL
+   ============================================================ */
+
+.guilds__5e434 {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,0.16),
+      rgba(80,180,220,0.12)
+    ) !important;
+
+  backdrop-filter:
+    blur(10px) saturate(145%) brightness(1.08) !important;
+
+  -webkit-backdrop-filter:
+    blur(10px) saturate(145%) brightness(1.08) !important;
+
+  border-right:
+    1px solid var(--glass-edge) !important;
+
+  box-shadow:
+    inset -1px 0 rgba(255,255,255,.20),
+    3px 0 15px rgba(0,80,120,.12);
+}
+
+
+/* Server icons */
+
+.blobContainer_e5445c,
+.wrapper_cc5dd2 {
+  transition:
+    transform .18s ease,
+    filter .18s ease,
+    box-shadow .18s ease;
+}
+
 .blobContainer_e5445c:hover,
 .wrapper_cc5dd2:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(188, 133, 255, 0.5);
+  transform: translateY(-2px) scale(1.03);
+
+  filter:
+    brightness(1.12)
+    saturate(1.15);
+
+  box-shadow:
+    0 6px 18px rgba(255,255,255,.30),
+    0 5px 18px rgba(20,130,180,.25);
 }
 
-/* this is the avatar and mute/deafen/settings button element */
-/* applies to stable 488579 (28327b1) */
-.panels__5e434 {
-    background-color: rgba(57, 38, 96, 0.3);
-    backdrop-filter: blur(10px);        
-    -webkit-backdrop-filter: blur(10px);                   
-    border: 3px solid rgba(0, 0, 0, 0.2);
+
+/* ============================================================
+   DM / CHANNEL SIDEBAR
+   ============================================================ */
+
+/*
+ * This is NOT dark anymore.
+ *
+ * It is a translucent pane that lets the wallpaper show through.
+ */
+
+.sidebarList__5e434,
+.sidebarListRounded__5e434 {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(120,215,240,.18),
+      rgba(255,255,255,.10)
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  border-right:
+    1px solid rgba(255,255,255,.30) !important;
+
+  box-shadow:
+    inset -1px 0 rgba(255,255,255,.15),
+    5px 0 22px rgba(20,100,140,.12);
 }
 
-/* makes the avatar element buttons jump on hover, mic/mute, hp/defean, gear/stngs respectively */
-/* applies to stable 488579 (28327b1) */
-  .micButtonParent__37e49:hover {
-    transition: 0.2s;
-    transform: translateY(-3px);
-  }
 
-  .micButtonParent__37e49:hover {
-    transition: 0.2s;
-    transform: translateY(-3px);
-  }
+/* Remove dark nested layers */
 
-  .button__67645:hover {
-    transition: 0.2s;
-    transform: translateY(-3px);
-  }
+.sidebarList__5e434 > div,
+.sidebarListRounded__5e434 > div,
+.container__133bf,
+.privateChannels_e6b769,
+.scroller__99e7c,
+.scrollerBase_d125d2 {
+  background:
+    transparent !important;
 
-/* mic/hp/settings button theming */
-/* applies to stable 488579 (28327b1) */
-.micButtonParent__37e49, .button__67645{
- display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border-radius: 10px;
-  color: #fff;
-  text-align: center;
-  transition: 0.2s;
-  text-shadow: 0 1px 1px #112ae7 !important;
-  background-color: #4452d8 !important;
-  border: 1px solid #4356ff !important;
-  transition: 0.4s;
-  background-image: radial-gradient(75% 50% at 50% 0%, #f4feff, transparent), radial-gradient(75% 35% at 50% 85%, #8d93fc, transparent) !important;
-  box-shadow: inset 0 -2px 4px 1px rgba(17, 46, 231, 0.6), inset 0 -4px 4px 1px #8d96fc, inset 0 0 2px 1px rgba(255, 255, 255, 0.2),
-    0 1px 4px 1px rgba(17, 46, 231, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1) !important;
-}
-/* if you uncomment what's below, the gif, sticker,  and activies
-buttons on the message bar will turn black (although not the emojis button
-because it changes on hover */
-/* .lottieIcon__5eb9b, .lottieIconColors__5eb9b {
-  color: #000;
-} */
-
-/* these are the buttons at the top right, pinned msgs, threads, etc */
-/* applies to stable 488579 (28327b1) */
-.iconWrapper__9293f {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  border-radius: 100px;
-  padding: 8px 8px;
-  color: #fff;
-  text-align: center;
-  transition: 0.2s;
-  text-shadow: 0 1px 1px #112ae7 !important;
-  background-color: #4452d8 !important;
-  border: 1px solid #4356ff !important;
-  transition: 0.4s;
-  background-image: radial-gradient(75% 50% at 50% 0%, #f4feff, transparent), radial-gradient(75% 35% at 50% 85%, #8d93fc, transparent) !important;
-  box-shadow: inset 0 -2px 4px 1px rgba(17, 46, 231, 0.6), inset 0 -4px 4px 1px #8d96fc, inset 0 0 2px 1px rgba(255, 255, 255, 0.2),
-    0 1px 4px 1px rgba(17, 46, 231, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1) !important;
+  background-color:
+    transparent !important;
 }
 
-/* channel name bar, with search and threads, pinned msgs buttons */
-/* applies to stable 488579 (28327b1) */
+
+/* ============================================================
+   SEARCH BAR
+   ============================================================ */
+
+.searchBar_e6b769 {
+  background: transparent !important;
+}
+
+.searchBar_e6b769 [class*="searchBarComponent"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.28),
+      rgba(100,190,225,.15)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.34) !important;
+
+  border-radius: 9px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.45),
+    inset 0 -1px rgba(40,130,170,.12),
+    0 2px 7px rgba(20,100,140,.10);
+
+  backdrop-filter:
+    blur(8px);
+}
+
+
+/* ============================================================
+   FRIENDS / NITRO / SHOP / QUESTS
+   ============================================================ */
+
+.container__133bf [class*="item"],
+.container__133bf [class*="link"] {
+  background: transparent !important;
+
+  border-radius: 7px;
+
+  transition:
+    background .15s ease,
+    box-shadow .15s ease,
+    transform .15s ease;
+}
+
+.container__133bf [class*="item"]:hover,
+.container__133bf [class*="link"]:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.17),
+      rgba(100,210,235,.10)
+    ) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.16);
+
+  transform:
+    translateX(2px);
+}
+
+
+/* ============================================================
+   DM LIST
+   ============================================================ */
+
+.privateChannels_e6b769 [class*="channel"],
+.privateChannels_e6b769 [class*="interactive"] {
+  background: transparent !important;
+
+  border-radius: 8px;
+
+  transition:
+    background .15s ease,
+    transform .15s ease;
+}
+
+
+/* DM hover */
+
+.privateChannels_e6b769 [class*="interactive"]:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.18),
+      rgba(100,210,235,.10)
+    ) !important;
+
+  transform:
+    translateX(2px);
+}
+
+
+/* Selected DM */
+
+.privateChannels_e6b769 [class*="selected"],
+.privateChannels_e6b769 [aria-selected="true"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.30),
+      rgba(90,190,225,.16)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.24) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.32),
+    0 2px 8px rgba(30,120,160,.12);
+}
+
+
+/* ============================================================
+   MAIN CHAT
+   ============================================================ */
+
+/*
+ * Almost no overlay.
+ *
+ * This is what lets the Frutiger Aero wallpaper breathe.
+ */
+
 .chat_f75fb0,
-.themed__9293f {
-  background-color: transparent !important;
-  background: none !important;
+.chatContent_f75fb0 {
+  background:
+    rgba(100,205,230,.035) !important;
+
+  backdrop-filter:
+    none !important;
+
+  -webkit-backdrop-filter:
+    none !important;
 }
 
-/* this gets rid of that tiny vertical black bar to the left of the buttons on the bar mentioned above */
-/* applies to stable 488579 (28327b1) */
+
+/* ============================================================
+   CHAT HEADER
+   ============================================================ */
+
+.themed__9293f {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.34),
+      rgba(90,190,225,.15)
+    ) !important;
+
+  backdrop-filter:
+    blur(10px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(10px) saturate(145%) !important;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.35) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.40),
+    0 2px 10px rgba(20,100,140,.10);
+}
+
+
+/* Remove Discord's little divider */
+
 .children__9293f::after {
   display: none !important;
 }
 
-/* the messages scroller */
-/* applies to stable 488579 (28327b1) */
-.chatContent_f75fb0 {
-  background-color: transparent !important;
-  background: none !important;
+
+/* ============================================================
+   TOP BUTTONS
+   ============================================================ */
+
+.iconWrapper__9293f {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px;
+
+  border-radius: 50%;
+
+  color: white !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 8%,
+      rgba(255,255,255,.95) 0%,
+      rgba(255,255,255,.42) 16%,
+      transparent 40%
+    ),
+    linear-gradient(
+      180deg,
+      #7898ff 0%,
+      #526ce8 45%,
+      #384dcc 100%
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.55) !important;
+
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,.55),
+    inset 0 -3px 5px rgba(30,50,180,.35),
+    0 3px 7px rgba(20,70,130,.22);
+
+  text-shadow:
+    0 1px 2px rgba(20,50,140,.8);
+
+  transition:
+    transform .16s ease,
+    filter .16s ease;
 }
 
-/* members list on right side */
-/* applies to stable 488579 (28327b1) */
+.iconWrapper__9293f:hover {
+  transform:
+    translateY(-2px)
+    scale(1.05);
+
+  filter:
+    brightness(1.12)
+    saturate(1.10);
+}
+
+
+/* ============================================================
+   RIGHT MEMBERS PANEL
+   ============================================================ */
+
 .container_c8ffbb,
-.members_c8ffbb,
-.clickable__91a9d {
-  background-color: transparent !important;
-  background: none !important;
-}
+.members_c8ffbb {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(90,195,230,.13),
+      rgba(255,255,255,.14)
+    ) !important;
 
-/* profile pictures in chat */
-/* applies to stable 488579 (28327b1) */
-.avatar_c19a55 {
-  border-radius: 10px;
-}
-.avatar_c19a55 {
-  transition:
-transform 220ms cubic-bezier(.2,.8,.2,1),
-    box-shadow 220ms cubic-bezier(.2,.8,.2,1),
-    backdrop-filter 220ms ease;
-}
-.avatar_c19a55:hover {
-  transform: translateY(-2px);
+  backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  border-left:
+    1px solid rgba(255,255,255,.32) !important;
+
   box-shadow:
-  0 8px 24px rgba(188, 133, 255, 0.717),
-  inset 0 0 0 1px rgba(188, 133, 255, 0.717);
+    inset 1px 0 rgba(255,255,255,.16),
+    -4px 0 20px rgba(20,100,140,.10);
 }
 
-/* message context menu hover */
-/* applies to stable 488579 (28327b1) */
-.wrapper_f7ecac {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(5px);  
+
+/* Member hover */
+
+.container_c8ffbb [class*="member"]:hover {
+  background:
+    rgba(255,255,255,.13) !important;
 }
 
-/* extended message context menu (three dots menu) */
-/* applies to stable 488579 (28327b1) */
-.menu_c1e9c4, 
-.flexible_c1e9c4 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(20px);  
+
+/* ============================================================
+   USER PANEL
+   ============================================================ */
+
+.panels__5e434 {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.26),
+      rgba(80,185,220,.20)
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  border-top:
+    1px solid rgba(255,255,255,.40) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.35),
+    0 -4px 14px rgba(20,100,140,.12);
 }
 
-/* profile menu */
-/* broken */
-/* .layer__59d0d,
-.animatorTop_faf9c0,
-.fade_faf9c0,
-.didRender_faf9c0,
-.popoutContainer_ce8328,
-.outer_c0bea0,
-.themeContainer_ce8328 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
+
+/* ============================================================
+   USER CONTROL BUTTONS
+   ============================================================ */
+
+.micButtonParent__37e49,
+.button__67645 {
+  position: relative;
+
+  border-radius: 9px !important;
+
+  color: white !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255,255,255,.98),
+      rgba(255,255,255,.25) 30%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #7e94ff,
+      #586de7 48%,
+      #3d51cb
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.55) !important;
+
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,.60),
+    inset 0 -3px 5px rgba(30,50,180,.35),
+    0 3px 8px rgba(20,80,140,.20);
+
+  text-shadow:
+    0 1px 2px rgba(20,50,140,.85);
+
+  transition:
+    transform .16s ease,
+    filter .16s ease,
+    box-shadow .16s ease;
 }
 
-.themeContainer_ce8328 {
-  text-shadow: 0 1px 1px #112ae7 !important;
-  background-color: #4452d8 !important;
-  border: 1px solid #4356ff !important;
-} */
+.micButtonParent__37e49:hover,
+.button__67645:hover {
+  transform:
+    translateY(-3px);
 
-/* message box */
-/* applies to stable 488579 (28327b1) */
-.channelTextArea__74017,
+  filter:
+    brightness(1.12);
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,.70),
+    0 7px 15px rgba(50,100,220,.30);
+}
+
+
+/* ============================================================
+   MESSAGE INPUT
+   ============================================================ */
+
+.channelTextArea__74017 {
+  background: transparent !important;
+}
+
+
+/*
+ * The actual message box is white/blue glass,
+ * not dark Discord gray.
+ */
+
 .themedBackground__74017 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
-}
-.chatGradient__36d07, .chatGradientBase__36d07 {
-  display: none !important;
-}
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.26),
+      rgba(80,180,220,.18)
+    ) !important;
 
-/* invite to server modal (more dark aero for some reason, seems to be an Electron quirk)*/
-.container__8a031,
-.size-md__8a031, 
-.padding-size-sm__8a031,
-.section__8a031,
-.header__8a031,
-.bodyList__8a031,
-.auto_d125d2,
-.scrollerBase_d125d2,
-.footer__8a031,
-.section__8a031 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(20px);
-}
+  backdrop-filter:
+    blur(12px) saturate(145%) !important;
 
-/* DMs screen */
-.container__133bf,
-.tabBody__133bf,
-.searchBar_e6b769,
-.scroller__99e7c,
-.thin_d125d2, 
-.scrollerBase_d125d2, 
-.fade_d125d2,
-.privateChannels_e6b769 {
-  background-color: transparent !important;
-  background: none !important;
-}
+  -webkit-backdrop-filter:
+    blur(12px) saturate(145%) !important;
 
-/* settings right panel */
-.content_e9e3ed,
-.mobileNavigationOpen_e9e3ed {
-  background-color: transparent !important;
-  background: none !important;
-}
+  border:
+    1px solid rgba(255,255,255,.30) !important;
 
-/* settings title panel */
-.contentHeader_e9e3ed {
-  background-color: transparent !important;
-  background: none !important;
-}
-
-/* message and more buttons on DMs screen */
-.actionButton_f8fa06 {
-  background-color: transparent !important;
-  background: none !important;
-}
-.outer_c0bea0:hover,
-.user-profile-popout:hover,
-.themeContainer_ce8328 {
-  transition:
-    transform 220ms cubic-bezier(.2,.8,.2,1),
-    box-shadow 220ms cubic-bezier(.2,.8,.2,1),
-    backdrop-filter 220ms ease;
-}
-.outer_c0bea0:hover,
-.user-profile-popout:hover,
-.themeContainer_ce8328:hover {
-  transform: translateY(-2px);
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.35),
-    inset 0 0 0 1px rgba(255,255,255,0.08);
+    inset 0 1px rgba(255,255,255,.35),
+    0 4px 14px rgba(20,100,140,.12);
 }
 
-/* server boosts page */
-.page__5e434,
-.container__89463,
-.contentContainer__89463,
-.parentContainer__5573a,
-.container__5573a,
-.active__5573a,
-.card__823e1,
-.sidebarContainer__89463,
-.container_a62383,
-.purple_a62383, 
-.container__6c253 {
-  background-color: transparent !important;
-  background: none !important;
-}
 
-/* three dots menu on DM sidebar was impossible to read, so this makes it better*/
-#popout_1120 {
-  background-color: #4452d8 !important;
-  background: #4452d8 !important;
-}
+/* Remove Discord gradient */
 
-/* inbox button popup */
-.layer__59d0d,
-.container_fc561d,
-.recentMentionsPopout__95796,
-.header_ab6641,
-.header_e8b59c,
-.titleContainer_e8b59c,
-.container__95796,
-.channelHeader__35a7e,
-.messageContainer__95796 {
-  background-color: transparent !important;
-  background: none !important;
-}
-
-/* friend profile popup */
-.profile__9c3be {
-  background-color: transparent !important;
-  background: none !important;
-}
-
-/* i got the damned black spot/black bar to go away */
-/* this is how */
-/* does not interfere with typing dots */
-.chatGradient__36d07, 
+.chatGradient__36d07,
 .chatGradientBase__36d07 {
   display: none !important;
 }
 
-/* activity entries on the right in a server view */
-.container__0f2e8, 
-.openOnHover__0f2e8,
-.usesCardRows__0f2e8 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
-  text-shadow: 0 1px 1px #112ae7 !important;
-  border: 1px solid #4356ff !important;
+
+/* ============================================================
+   MESSAGE HOVER
+   ============================================================ */
+
+.messageListItem__5126c:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.05),
+      rgba(120,220,240,.035)
+    ) !important;
 }
 
-/* the popup that comes up when you hover on the activity entries */
-.layer__59d0d,
-.animatorLeft_faf9c0, 
-.translate_faf9c0, 
-.didRender_faf9c0,
-.popout_af3b89,
-.popoutContentWrapper_af3b89,
-.interactionsContainer_af3b89,
-.hero_af3b89 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
-  text-shadow: 0 1px 1px #112ae7 !important;
+
+/* ============================================================
+   AVATARS
+   ============================================================ */
+
+.avatar_c19a55 {
+  border-radius: 7px !important;
+
+  transition:
+    transform .18s ease,
+    filter .18s ease,
+    box-shadow .18s ease;
 }
 
-/* gif picker modal */
-/* I don't know why the blur shoots off so far to the left like that */
+.avatar_c19a55:hover {
+  transform:
+    translateY(-2px)
+    scale(1.03);
+
+  filter:
+    brightness(1.08);
+
+  box-shadow:
+    0 6px 16px rgba(40,140,190,.35),
+    0 0 0 1px rgba(255,255,255,.30);
+}
+
+
+/* ============================================================
+   EMBEDS
+   ============================================================ */
+
+[class^="embedFull"] {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.18),
+      rgba(70,170,210,.14)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.22) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.15);
+}
+
+
+/* ============================================================
+   CONTEXT MENUS
+   ============================================================ */
+
+.wrapper_f7ecac,
+.menu_c1e9c4,
+.flexible_c1e9c4 {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(170,230,245,.55),
+      rgba(60,145,190,.58)
+    ) !important;
+
+  backdrop-filter:
+    blur(18px) saturate(150%) !important;
+
+  -webkit-backdrop-filter:
+    blur(18px) saturate(150%) !important;
+
+  border:
+    1px solid rgba(255,255,255,.40) !important;
+
+  border-radius:
+    10px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.35),
+    0 12px 35px rgba(10,80,120,.25);
+}
+
+
+/* ============================================================
+   PROFILE POPUPS
+   ============================================================ */
+
+.outer_c0bea0,
+.user-profile-popout,
+.themeContainer_ce8328 {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(160,230,245,.58),
+      rgba(50,140,185,.60)
+    ) !important;
+
+  backdrop-filter:
+    blur(20px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(20px) saturate(145%) !important;
+
+  border:
+    1px solid rgba(255,255,255,.42) !important;
+
+  border-radius:
+    12px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.40),
+    0 15px 40px rgba(10,80,120,.28);
+}
+
+
+/* ============================================================
+   PICKERS / MODALS
+   ============================================================ */
+
 .contentWrapper__08434,
 .container_fed6d3,
-.header_fed6d3 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
-  text-shadow: 0 1px 1px #112ae7 !important;
-  border: 1px solid #4356ff !important;
-}
-
-/* threads picker modal */
-.header_d9c882,
-.list_c441f0,
-.container__1b24f,
-.layer__59d0d,
+.header_fed6d3,
+.messagesPopoutWrap_e8b59c,
 .browser_d98031,
 .container_d9c882 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(160,230,245,.55),
+      rgba(60,150,195,.58)
+    ) !important;
+
+  backdrop-filter:
+    blur(20px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(20px) saturate(145%) !important;
+
+  border:
+    1px solid rgba(255,255,255,.38) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.35),
+    0 15px 45px rgba(10,80,120,.25);
 }
 
-/* pinned messages modal */
-.layer__59d0d,
-.messagesPopoutWrap_e8b59c {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
+
+/* ============================================================
+   TOOLTIP
+   ============================================================ */
+
+.tooltip__4e35b {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(150,225,245,.80),
+      rgba(45,130,175,.82)
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) !important;
+
+  border:
+    1px solid rgba(255,255,255,.45);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.45),
+    0 7px 20px rgba(10,80,120,.25);
 }
 
-/* discover sidebar */
-.sidebarList__5e434,
-.sidebarListRounded__5e434,
-.container__551b0 {
-  background-color: transparent !important;
-  background: none !important;
+.caretIcon__4e35b {
+  display: none !important;
 }
 
-/* status bubble on profile modal */
-/* this one is weird, I had to manually set border-radius */
-/* also, removing ANY of these elements listed will cause it to not work */
-/* also also, the bubbles traveling to your profile picture will disappear with */
-/* .outer_ab8609 enabled, but without it, the blur doesn't work */
-.container_ab8609, 
-.editable_ab8609,
-.outer_ab8609,
-.inner_ab8609, 
-}
 
-/* modal that appears when you click on your Orbs balance in the Quests tab */
-/* no idea why this is blurred without blur being manually set */
-/* but you know what, I'm here for it */
-.cardContainer__44ee9, 
-.alignRight__44ee9, 
-.visible__44ee9,
-.container_b4f99f, 
-.baseCardOutline__1ab14 {
-  background-color: transparent !important;
-  background: none !important;
-}
+/* ============================================================
+   DM PAGE / SETTINGS / SHOP
+   ============================================================ */
 
-/* Orbs exclusives tab of Shop page */
-/* because the background is a looping gif, most of it isn't themable */
+.content_e9e3ed,
+.mobileNavigationOpen_e9e3ed,
+.contentHeader_e9e3ed,
 .page__5e434,
 .shop__6db1d,
 .headerBar__80679 {
-  background-color: transparent !important;
-  background: none !important;
+  background: transparent !important;
 }
 
-/* active now sidebar */
-/* one thing I noticed about this element is that they kept */
-/* the "nowPlaying" part of the class name from the old UI design */
-/* (all the commented out code works for that design) */
-.nowPlayingColumn__133bf,
-.container__7d20c,
-.itemCard__7e549, 
-.wrapper__00943, 
-.outer_bf1984, 
-.padded_bf1984, 
-.interactive_bf1984 {
-  background-color: transparent !important;
-  background: none !important;
-}
 
-/* games i like section of friend profile */
-.container__62dd3 {
-  background-color: transparent !important;
-  background: none !important;
-}
+/* ============================================================
+   VOICE
+   ============================================================ */
 
-/* what pops up when you hover over a server icon on the left */
-.tooltip__4e35b {
-  background-color: transparent !important;
-  background: none !important;
-}
-
-/* the little arrow pointing to the server on the above popup */
-.caretIcon__4e35b {
-  display: none;
-}
-
-/* background on a voice call */
-.page__5e434,
-.chat_f75fb0,
 .wrapper_cb9592,
-.noChat_cb9592, 
+.noChat_cb9592,
 .video_cb9592,
 .callContainer_cb9592,
-.root_bfe55a, 
+.root_bfe55a,
 .idle_bfe55a {
-  background-color: transparent !important;
-  background: none !important;
+  background: transparent !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
 }
 
-/* voice call video controls */
-.videoControls_bfe55a,
-.gradientTop_bfe55a, 
-.gradientContainer_bfe55a,
-.gradientBottom_bfe55a,
-.gradientContainer_bfe55a {
-  background-color: transparent !important;
-  background: none !important;
-}
 
-/* voice call buttons */
-.buttonSection__1405b {
-  background-color: #4356ff !important;
-  background: #4356ff !important;
-  color: #4356ff;
-}
+/* Voice chat glass */
 
-/* voice call chat window */
 .scrollerInner__36d07,
-.chatTarget__01ae2
-.container__01ae2, 
+.chatTarget__01ae2,
+.container__01ae2,
 .floating__01ae2 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
+  background:
+    rgba(70,175,215,.18) !important;
+
+  backdrop-filter:
+    blur(12px) saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(140%);
 }
 
-/* vencord translate msg plugin modal */
-.focusLock__49fc1,
-.root__49fc1
-.small__49fc1,
-.fullscreenOnMobile__49fc1, 
-.rootWithShadow__49fc1 {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
-}
 
-/* stuff from the emoji picker modal that didn't get picked up by other classes*/
-.inspector_aeaaeb, 
-.inspector_c0e32c,
-.wrapper__4e6ce, 
-.categoryList_c0e32c {
-  background-color: transparent !important;
-  background: none !important;
-  backdrop-filter: blur(200px);
-}
+/* ============================================================
+   SLASH COMMANDS
+   ============================================================ */
 
-/* the normal emojis button */
-.unicodeShortcut_b9ee0c {
-  backdrop-filter: blur(200px);
-}
-
-/* the star button on the emoji picker modal */
-.categoryItemDefaultCategory_b9ee0c, 
-.categoryItem_b9ee0c,
-.categoryItemDefaultCategorySelected_b9ee0c {
-  background-color: transparent !important;
-  background: none !important;
-}
-
-/* the headings (favorites, recent, etc) */
-.wrapper__14245, 
-.header_c656ac {
-  background-color: transparent !important;
-  background: none !important; 
-}
-
-/* search bar on sticker picker modal */
-.header__8ef02 {
-  background-color: transparent !important;
-  background: none !important; 
-}
-
-/* perks list cards in nitro tab of settings */
-.perkCard_e6430c {
-  background-color: transparent !important;
-  background: none !important; 
-}
-
-/* apps and commands modal */
-.positionLayer__31a96, 
-.layer__59d0d,
-.positionContainer__31a96,
-.drawerSizingWrapper__9c62c,
-.contentWrapper__9c62c,
-.appDetailsContainer_cb32c7,
-.container_cb32c7, 
-.containerBorderRadius_cb32c7,
-.overviewContainerWithVideo__95856 {
-  background-color: transparent !important;
-  background: none !important; 
-}
-
-/* slash commands modal */
-.autocomplete__13533, 
+.autocomplete__13533,
 .outerWrapper_d1405b,
 .rail_d1405b,
 .wrapper_b1e4f3,
 .autocompleteInner__13533,
 .wrapper_d1405b {
-  background-color: #34428e !important;
-  background: #34428e !important;
-  color: #34428e;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(150,225,245,.68),
+      rgba(50,130,175,.72)
+    ) !important;
+
+  backdrop-filter:
+    blur(15px) !important;
+
+  -webkit-backdrop-filter:
+    blur(15px) !important;
+
+  border:
+    1px solid rgba(255,255,255,.35) !important;
+
+  color: white !important;
 }
 
-/* vencord notifications */
-.vc-notification-root {
-  background-color: #34428e !important;
-} 
 
-/* channels list */
-.container__2637a {
+/* ============================================================
+   VENCORD NOTIFICATIONS
+   ============================================================ */
+
+.vc-notification-root {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(150,225,245,.70),
+      rgba(50,130,175,.72)
+    ) !important;
+
+  backdrop-filter:
+    blur(15px);
+
+  -webkit-backdrop-filter:
+    blur(15px);
+
+  border:
+    1px solid rgba(255,255,255,.35);
+
+  box-shadow:
+    0 10px 30px rgba(10,80,120,.25);
+}
+
+
+/* ============================================================
+   GLOSSY SCROLLBARS
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background:
+    rgba(255,255,255,.05) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.55),
+      rgba(70,170,215,.40)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.25);
+
+  border-radius:
+    10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.75),
+      rgba(80,190,225,.55)
+    ) !important;
+}
+
+
+/* ============================================================
+   LITTLE AERO TEXT GLOW
+   ============================================================ */
+
+h1,
+h2,
+h3,
+h4,
+[class*="username"] {
+  text-shadow:
+    0 1px 2px rgba(20,90,130,.55);
+}
+
+
+/* ============================================================
+   FINAL TRANSPARENCY CLEANUP
+   ============================================================ */
+
+/*
+ * These stop random Discord layers from creating dark
+ * rectangles over the wallpaper.
+ */
+
+.container__2637a,
+.container__551b0,
+.sidebarList__5e434,
+.sidebarListRounded__5e434,
+.privateChannels_e6b769,
+.tabBody__133bf,
+.container__133bf {
+  background-image: none !important;
+}
+
+
+/*
+ * Don't accidentally introduce giant opaque surfaces.
+ */
+
+.chat_f75fb0,
+.chatContent_f75fb0 {
+  background-color:
+    rgba(255,255,255,.025) !important;
+}
+
+
+/*
+ * The wallpaper should remain visible through the center.
+ */
+
+.scrollerBase_d125d2 {
+  background: transparent !important;
+}
+
+/* ============================================================
+   FRUTIGER AERO — SHOP + NITRO
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   SHOP — REMOVE DISCORD'S DARK/OPAQUE PAGE
+   ------------------------------------------------------------ */
+
+.page__5e434,
+.shop__6db1d,
+.headerBar__80679,
+.container__89463,
+.contentContainer__89463,
+.parentContainer__5573a,
+.container__5573a,
+.active__5573a,
+.sidebarContainer__89463,
+.container_a62383,
+.purple_a62383,
+.container__6c253 {
+  background: transparent !important;
   background-color: transparent !important;
-  background: none !important; 
-} 
+  background-image: none !important;
+}
+
+
+/* Shop content area */
+
+.shop__6db1d {
+  position: relative;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.06),
+      rgba(60,180,220,.04)
+    ) !important;
+}
+
+
+/* Shop header */
+
+.headerBar__80679 {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.30),
+      rgba(100,200,230,.13)
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.32) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.35),
+    0 3px 15px rgba(20,100,140,.12);
+}
+
+
+/* ------------------------------------------------------------
+   SHOP CARDS
+   ------------------------------------------------------------ */
+
+.card__823e1,
+.container__89463 [class*="card"],
+.shop__6db1d [class*="card"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.27),
+      rgba(70,175,215,.17)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.32) !important;
+
+  border-radius:
+    12px !important;
+
+  backdrop-filter:
+    blur(10px) saturate(140%) !important;
+
+  -webkit-backdrop-filter:
+    blur(10px) saturate(140%) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.38),
+    inset 0 -1px rgba(20,110,150,.08),
+    0 6px 20px rgba(20,100,140,.13);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease;
+}
+
+
+/* Shiny Shop card hover */
+
+.card__823e1:hover,
+.shop__6db1d [class*="card"]:hover {
+  transform:
+    translateY(-3px);
+
+  filter:
+    brightness(1.06)
+    saturate(1.08);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.50),
+    0 12px 28px rgba(20,110,150,.22);
+}
+
+
+/* ------------------------------------------------------------
+   SHOP IMAGES
+   ------------------------------------------------------------ */
+
+/*
+ * Don't put a heavy dark overlay over Discord's artwork.
+ */
+
+.shop__6db1d img {
+  filter:
+    saturate(1.08)
+    brightness(1.03) !important;
+}
+
+
+/* ------------------------------------------------------------
+   ORBS SECTION
+   ------------------------------------------------------------ */
+
+.cardContainer__44ee9,
+.alignRight__44ee9,
+.visible__44ee9,
+.container_b4f99f,
+.baseCardOutline__1ab14 {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.25),
+      rgba(70,180,215,.16)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.30) !important;
+
+  border-radius:
+    12px !important;
+
+  backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(145%) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.40),
+    0 6px 20px rgba(20,100,140,.14);
+}
+
+
+/* ============================================================
+   NITRO PAGE
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   NITRO — PAGE BACKGROUND
+   ------------------------------------------------------------ */
+
+.page__5e434 {
+  background:
+    transparent !important;
+
+  background-color:
+    transparent !important;
+
+  background-image:
+    none !important;
+}
+
+
+/*
+ * Nitro has several nested wrappers that normally paint
+ * their own giant backgrounds.
+ */
+
+.perksContainer__,
+.content__,
+.container__,
+.heroContainer__,
+.section__ {
+  background-color: transparent !important;
+}
+
+
+/* Main Nitro content */
+
+.page__5e434 [class*="content"],
+.page__5e434 [class*="container"] {
+  background-color: transparent !important;
+}
+
+
+/* ------------------------------------------------------------
+   NITRO HEADER / HERO
+   ------------------------------------------------------------ */
+
+.page__5e434 [class*="hero"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(150,225,245,.22),
+      rgba(70,170,215,.12)
+    ) !important;
+
+  border-radius:
+    16px !important;
+
+  border:
+    1px solid rgba(255,255,255,.30) !important;
+
+  backdrop-filter:
+    blur(10px) saturate(140%) !important;
+
+  -webkit-backdrop-filter:
+    blur(10px) saturate(140%) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.38),
+    0 8px 25px rgba(20,100,140,.14);
+}
+
+
+/* ------------------------------------------------------------
+   NITRO PERK CARDS
+   ------------------------------------------------------------ */
+
+.perkCard_e6430c {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.28),
+      rgba(75,175,215,.16)
+    ) !important;
+
+  background-color:
+    transparent !important;
+
+  border:
+    1px solid rgba(255,255,255,.32) !important;
+
+  border-radius:
+    12px !important;
+
+  backdrop-filter:
+    blur(10px) saturate(140%) !important;
+
+  -webkit-backdrop-filter:
+    blur(10px) saturate(140%) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.40),
+    0 6px 18px rgba(20,100,140,.13);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.perkCard_e6430c:hover {
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.50),
+    0 12px 28px rgba(20,110,150,.20);
+}
+
+
+/* ------------------------------------------------------------
+   NITRO BUTTONS
+   ------------------------------------------------------------ */
+
+.page__5e434 button {
+  color:
+    white !important;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255,255,255,.95),
+      rgba(255,255,255,.25) 25%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #7898ff 0%,
+      #596ee9 48%,
+      #3c50ca 100%
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.52) !important;
+
+  border-radius:
+    9px !important;
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,.60),
+    inset 0 -3px 5px rgba(30,50,180,.32),
+    0 4px 10px rgba(30,90,150,.20) !important;
+
+  text-shadow:
+    0 1px 2px rgba(20,50,140,.75);
+
+  transition:
+    transform .16s ease,
+    filter .16s ease;
+}
+
+.page__5e434 button:hover {
+  transform:
+    translateY(-2px);
+
+  filter:
+    brightness(1.10);
+}
+
+
+/* ------------------------------------------------------------
+   NITRO TAB / NAVIGATION
+   ------------------------------------------------------------ */
+
+.page__5e434 [role="tab"],
+.page__5e434 [class*="tab"] {
+  background:
+    transparent !important;
+
+  border-radius:
+    8px;
+
+  transition:
+    background .15s ease;
+}
+
+.page__5e434 [role="tab"]:hover,
+.page__5e434 [class*="tab"]:hover {
+  background:
+    rgba(255,255,255,.13) !important;
+}
+
+
+/* Active tab */
+
+.page__5e434 [role="tab"][aria-selected="true"] {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.28),
+      rgba(80,180,220,.15)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.22);
+}
+
+
+/* ============================================================
+   SHOP/NITRO TEXT
+   ============================================================ */
+
+.page__5e434 h1,
+.page__5e434 h2,
+.page__5e434 h3,
+.shop__6db1d h1,
+.shop__6db1d h2,
+.shop__6db1d h3 {
+  color:
+    white !important;
+
+  text-shadow:
+    0 1px 3px rgba(20,90,130,.55);
+}
+
+
+/* ============================================================
+   FINAL SHOP/NITRO TRANSPARENCY
+   ============================================================ */
+
+.shop__6db1d *,
+.page__5e434 * {
+  --background-primary: transparent;
+  --background-secondary: transparent;
+  --background-secondary-alt: transparent;
+}
+
+
+/*
+ * Prevent the page itself from becoming a giant opaque
+ * rectangle.
+ */
+
+.shop__6db1d,
+.page__5e434,
+.shop__6db1d > div,
+.page__5e434 > div {
+  background-color:
+    transparent !important;
+}
+/* ============================================================
+   FRUTIGER AERO — BLACK SURFACE KILLER
+   SHOP / NITRO / ACTIVE NOW
+   PUT THIS AT THE VERY BOTTOM
+   ============================================================ */
+
+
+/* ============================================================
+   1. DISCORD BACKGROUND VARIABLES
+   ============================================================ */
+
+/*
+ * Discord uses these variables in a LOT of places.
+ * Your previous CSS changed the actual elements, but Discord
+ * can still paint black through these variables.
+ */
+
+:root {
+  --background-primary: transparent !important;
+  --background-secondary: transparent !important;
+  --background-secondary-alt: transparent !important;
+  --background-tertiary: transparent !important;
+  --background-accent: rgba(80, 170, 215, .20) !important;
+
+  --background-floating:
+    rgba(80, 170, 210, .72) !important;
+
+  --background-modifier-hover:
+    rgba(255,255,255,.12) !important;
+
+  --background-modifier-active:
+    rgba(255,255,255,.18) !important;
+
+  --background-modifier-selected:
+    rgba(255,255,255,.20) !important;
+
+  --background-modifier-accent:
+    rgba(255,255,255,.15) !important;
+
+  --input-background:
+    rgba(255,255,255,.14) !important;
+}
+
+
+/* ============================================================
+   2. ACTIVE NOW — COMPLETE REBUILD
+   ============================================================ */
+
+/*
+ * Discord's Active Now panel is one of the things that
+ * stubbornly keeps a dark background.
+ */
+
+.nowPlayingColumn__133bf,
+.container__7d20c,
+.itemCard__7e549,
+.wrapper__00943,
+.outer_bf1984,
+.padded_bf1984,
+.interactive_bf1984,
+.nowPlayingColumn__133bf > div,
+.container__7d20c > div {
+  background-color:
+    transparent !important;
+
+  background-image:
+    none !important;
+}
+
+
+/* Main Active Now glass */
+
+.nowPlayingColumn__133bf {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(100,205,235,.12),
+      rgba(255,255,255,.12)
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) saturate(140%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(140%) !important;
+
+  border-left:
+    1px solid rgba(255,255,255,.25) !important;
+}
+
+
+/* Active Now cards */
+
+.itemCard__7e549,
+.wrapper__00943,
+.outer_bf1984,
+.padded_bf1984,
+.interactive_bf1984 {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.23),
+      rgba(65,170,215,.14)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.25) !important;
+
+  border-radius:
+    10px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.30),
+    0 4px 15px rgba(20,100,140,.12);
+}
+
+
+/* Active Now hover */
+
+.itemCard__7e549:hover,
+.wrapper__00943:hover,
+.interactive_bf1984:hover {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.32),
+      rgba(80,185,220,.20)
+    ) !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.40),
+    0 8px 20px rgba(20,100,140,.18);
+}
+
+
+/* Kill nested black surfaces inside Active Now */
+
+.nowPlayingColumn__133bf [class*="card"],
+.nowPlayingColumn__133bf [class*="Card"],
+.nowPlayingColumn__133bf [class*="container"],
+.nowPlayingColumn__133bf [class*="Container"] {
+  background-color:
+    transparent !important;
+}
+
+
+/* But restore the actual cards */
+
+.nowPlayingColumn__133bf .itemCard__7e549,
+.nowPlayingColumn__133bf .wrapper__00943,
+.nowPlayingColumn__133bf .interactive_bf1984 {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.23),
+      rgba(65,170,215,.14)
+    ) !important;
+}
+
+
+/* ============================================================
+   3. SHOP — REMOVE BLACK PAGE SURFACES
+   ============================================================ */
+
+.shop__6db1d,
+.shop__6db1d > div,
+.shop__6db1d > div > div,
+.page__5e434,
+.page__5e434 > div,
+.page__5e434 > div > div {
+  background-color:
+    transparent !important;
+
+  background-image:
+    none !important;
+}
+
+
+/*
+ * Shop-specific wrappers.
+ */
+
+.shop__6db1d [class*="page"],
+.shop__6db1d [class*="Page"],
+.shop__6db1d [class*="container"],
+.shop__6db1d [class*="Container"],
+.shop__6db1d [class*="content"],
+.shop__6db1d [class*="Content"] {
+  background-color:
+    transparent !important;
+}
+
+
+/* Restore shop cards after clearing the generic containers */
+
+.shop__6db1d [class*="card"],
+.shop__6db1d [class*="Card"],
+.card__823e1 {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.25),
+      rgba(65,175,215,.15)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.30) !important;
+
+  border-radius:
+    12px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.35),
+    0 6px 20px rgba(20,100,140,.14);
+}
+
+
+/* ============================================================
+   4. SHOP HEADER
+   ============================================================ */
+
+.headerBar__80679 {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.28),
+      rgba(70,180,220,.12)
+    ) !important;
+
+  background-color:
+    transparent !important;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.28),
+      rgba(70,180,220,.12)
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) saturate(140%) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) saturate(140%) !important;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.30) !important;
+}
+
+
+/* ============================================================
+   5. NITRO — NUKE THE BLACK BACKGROUND
+   ============================================================ */
+
+/*
+ * Nitro has a bunch of nested sections that can inherit
+ * Discord's normal dark backgrounds.
+ */
+
+.page__5e434 {
+  background:
+    transparent !important;
+
+  background-color:
+    transparent !important;
+
+  background-image:
+    none !important;
+}
+
+
+/* Generic Nitro wrappers */
+
+.page__5e434 > div,
+.page__5e434 > div > div,
+.page__5e434 > div > div > div {
+  background-color:
+    transparent !important;
+}
+
+
+/*
+ * Catch Discord's common Nitro surface names.
+ */
+
+.page__5e434 [class*="background"],
+.page__5e434 [class*="Background"],
+.page__5e434 [class*="section"],
+.page__5e434 [class*="Section"],
+.page__5e434 [class*="content"],
+.page__5e434 [class*="Content"] {
+  background-color:
+    transparent !important;
+}
+
+
+/* ============================================================
+   6. NITRO CARDS
+   ============================================================ */
+
+.perkCard_e6430c {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.27),
+      rgba(65,175,215,.16)
+    ) !important;
+
+  background-color:
+    transparent !important;
+
+  border:
+    1px solid rgba(255,255,255,.32) !important;
+
+  border-radius:
+    12px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.38),
+    0 6px 20px rgba(20,100,140,.14);
+}
+
+
+/* ============================================================
+   7. NITRO PURCHASE / PLAN CARDS
+   ============================================================ */
+
+/*
+ * These selectors deliberately use partial class matching
+ * because Discord changes the hashes on Nitro components
+ * more frequently.
+ */
+
+.page__5e434 [class*="plan"],
+.page__5e434 [class*="Plan"],
+.page__5e434 [class*="tier"],
+.page__5e434 [class*="Tier"],
+.page__5e434 [class*="purchase"],
+.page__5e434 [class*="Purchase"],
+.page__5e434 [class*="subscription"],
+.page__5e434 [class*="Subscription"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.26),
+      rgba(70,175,215,.15)
+    ) !important;
+
+  border:
+    1px solid rgba(255,255,255,.30) !important;
+
+  border-radius:
+    12px !important;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.35),
+    0 6px 20px rgba(20,100,140,.14);
+}
+
+
+/* ============================================================
+   8. NITRO PURPLE/DARK PANELS
+   ============================================================ */
+
+/*
+ * Discord sometimes uses a purple/black surface specifically
+ * for Nitro. Replace it with Aero glass.
+ */
+
+.page__5e434 [class*="purple"],
+.page__5e434 [class*="Purple"],
+.page__5e434 [class*="premium"],
+.page__5e434 [class*="Premium"] {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(150,225,245,.28),
+      rgba(70,160,210,.18)
+    ) !important;
+
+  background-color:
+    transparent !important;
+
+  border-color:
+    rgba(255,255,255,.28) !important;
+}
+
+
+/* ============================================================
+   9. SHOP/NITRO BUTTONS
+   ============================================================ */
+
+.shop__6db1d button,
+.page__5e434 button {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(255,255,255,.95),
+      rgba(255,255,255,.28) 27%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #7e99ff,
+      #596ee8 48%,
+      #4052ca
+    ) !important;
+
+  color:
+    white !important;
+
+  border:
+    1px solid rgba(255,255,255,.55) !important;
+
+  box-shadow:
+    inset 0 2px 3px rgba(255,255,255,.60),
+    inset 0 -3px 5px rgba(30,50,180,.35),
+    0 4px 10px rgba(30,80,150,.20) !important;
+}
+
+
+/* ============================================================
+   10. SHOP/NITRO SCROLLERS
+   ============================================================ */
+
+.shop__6db1d .scrollerBase_d125d2,
+.page__5e434 .scrollerBase_d125d2,
+.shop__6db1d [class*="scroller"],
+.page__5e434 [class*="scroller"] {
+  background:
+    transparent !important;
+
+  background-color:
+    transparent !important;
+}
+
+
+/* ============================================================
+   11. STOP BLACK PSEUDO-ELEMENTS
+   ============================================================ */
+
+/*
+ * This is particularly useful for the giant black strips
+ * Discord sometimes creates with ::before / ::after.
+ */
+
+.nowPlayingColumn__133bf::before,
+.nowPlayingColumn__133bf::after,
+.shop__6db1d::before,
+.shop__6db1d::after,
+.page__5e434::before,
+.page__5e434::after {
+  background:
+    transparent !important;
+
+  background-color:
+    transparent !important;
+}
+
+
+/* ============================================================
+   12. FINAL GLOBAL AERO CLEANUP
+   ============================================================ */
+
+.guilds__5e434,
+.sidebarList__5e434,
+.nowPlayingColumn__133bf,
+.shop__6db1d,
+.page__5e434 {
+  color-scheme:
+    dark;
+}
+
+
+/*
+ * Prevent Discord from reintroducing its standard dark
+ * background through these frequently-used classes.
+ */
+
+.backgroundPrimary__6e1f8,
+.backgroundSecondary__6e1f8,
+.backgroundTertiary__6e1f8,
+.backgroundFloating__6e1f8 {
+  background-color:
+    transparent !important;
+}
+
+
+/*
+ * Generic Discord background surfaces.
+ * Only applies to elements inside the areas we're fixing.
+ */
+
+.nowPlayingColumn__133bf [class*="backgroundPrimary"],
+.nowPlayingColumn__133bf [class*="backgroundSecondary"],
+.nowPlayingColumn__133bf [class*="backgroundTertiary"],
+.shop__6db1d [class*="backgroundPrimary"],
+.shop__6db1d [class*="backgroundSecondary"],
+.shop__6db1d [class*="backgroundTertiary"],
+.page__5e434 [class*="backgroundPrimary"],
+.page__5e434 [class*="backgroundSecondary"],
+.page__5e434 [class*="backgroundTertiary"] {
+  background:
+    transparent !important;
+
+  background-color:
+    transparent !important;
+}
