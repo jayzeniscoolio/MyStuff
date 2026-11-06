@@ -1934,3 +1934,70 @@ h4,
   background-color:
     transparent !important;
 }
+/* ============================================================
+   FRUTIGER AERO — BLACK CHAT TEXT ONLY
+   ============================================================ */
+
+/* Normal message text */
+.messageContent_c19a55,
+.markup__75297 {
+  color: #111 !important;
+}
+
+
+/* Message links */
+.messageContent_c19a55 a,
+.markup__75297 a {
+  color: #006f9c !important;
+}
+
+
+/* Normal usernames in the message list */
+.username_c19a55 {
+  color: #111 !important;
+}
+
+
+/* Timestamps */
+.timestamp_c19a55 {
+  color: rgba(0, 0, 0, 0.55) !important;
+}
+
+
+/* Channel names in the normal channel list */
+.containerDefault_c69b6d .name__2ea32,
+.mainContent-ILQX7,
+.name__2ea32 {
+  color: #111 !important;
+}
+
+
+/* DM names */
+.privateChannels_e6b769 .name__20f04 {
+  color: #111 !important;
+}
+
+
+/* Normal channel description/topic */
+.topic__0f31c {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+
+/* Message input text */
+.channelTextArea__74017 textarea,
+.channelTextArea__74017 [contenteditable="true"] {
+  color: #111 !important;
+}
+
+
+/* Message input placeholder */
+.channelTextArea__74017 textarea::placeholder,
+.channelTextArea__74017 [contenteditable="true"] {
+  --channel-text-area-placeholder: rgba(0,0,0,.45) !important;
+}
+
+
+
+
+
